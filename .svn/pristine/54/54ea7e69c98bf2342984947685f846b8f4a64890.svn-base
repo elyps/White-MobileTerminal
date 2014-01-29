@@ -1,0 +1,50 @@
+#labels Phase-Deploy,Featured
+#Tutorial on how to install MobileTerminal
+= Introduction =
+
+== Easy Install (using Cydia auto-install) ==
+
+We have submitted the latest version of mobileterminal to the bigboss repository, so that its easy to install through the default Cydia sources.
+
+The older versions of MobileTerminal (less than v520) already on Cydia doesn't work on iOS 4.0 or greater.
+
+=== For Mac users: ===
+  # Download the latest `*`.deb file [http://mobileterminal.googlecode.com/files/MobileTerminal_520-1_iphoneos-arm.deb here]
+  # Download and install on your Mac the latest version of [http://cyberduck.ch/ Cyberduck]
+  # Make sure your Mac and iDevice both have a Wi-Fi connection on the same network
+  # On your iDevice, open (for iOS 4.x) Settings: General: Wi-Fi or (for iOS 6.x) Settings: Wi-Fi, tap the right-arrow on your connected network, and note the IP Address
+  # Open Cyberduck on your Mac, select Open Connection, and select “SFTP (SSH File Transfer Protocol)”
+  # Enter the iDevice’s IP Address into “Server,” with Username “root” and your password (the default password is “alpine”), and press Connect {_NB: It will take some time to make the initial connection_}
+
+••• If you have jailbroken your iDevice and NOT changed the default 'root' and 'mobile' passwords yet, you are asking to be hacked! •••
+
+  # Navigate to /private/var/root/Media/Cydia/AutoInstall {_NB: If the AutoInstall folder does not exist, create it, paying attention to the capital letters A and I_}
+  # Drag the MobileTerminal .deb file from your Mac into the AutoInstall folder
+  # Quit Cyberduck and reboot the iDevice
+
+_NB: If, after rebooting, MobileTerminal does not appear on your Springboard, respring (not reboot) the iDevice_
+
+
+=== For Windows users: ===
+
+  # [http://www.mediafire.com/?x5b6vh1xz4tjllq Download the *.deb file (r475)]
+  # [http://www.i-funbox.com/ Windows users should download iFunbox]
+  # Extract the file you just downloaded using the method of your choice (the Windows built-in method is right-clicking and selecting "extract")
+  # Double-click on the extracted file iFunbox.exe icon, which should look like this: http://i54.tinypic.com/255jdcj.png
+  # Connect your iPhone/iPod/iPad using your USB cable (the same one used for iTunes)
+  # Look on the left side of the iFunbox screen for http://i51.tinypic.com/21pbk.png and click on it
+  # Search the top bar of the iFunbox screen for http://i52.tinypic.com/2f0gd2s.png and click it
+  # Select the `*`.deb file you downloaded in step one, which may have an icon looking like this on Windows 7: http://i51.tinypic.com/1zvfh1.png
+  # Start Cydia on your iDevice and MobileTerminal should automatically be installed
+
+== Manual Install ==
+This method assumes familiarity with using a command prompt/SSH.
+This is an overview of the steps to installing the latest MobileTerminal from the `*`.zip on GoogleCode:
+  # Copy the contents of the `*`.zip archive on the downloads page to /Applications
+  # Change ownerships on /Applications/Terminal.app to root:admin
+  # Change permissions (recursively) on /Applications/Terminal.app to 644
+  # Change permissions on /Applications/Terminal.app/Terminal 755
+  # Change permissions on /Applications/Terminal.app 755
+  # Regenerate the SpringBoard icon cache (the `uicache` command has to be run as user mobile) or reboot
+Mac and Linux users can use SCP over wireless, although Ubuntu Linux has built-in support for USB iDevice file transfer using usbmuxd.
+Windows users have iFunbox, as mentioned above.
